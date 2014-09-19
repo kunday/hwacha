@@ -1,5 +1,5 @@
 image_namespace=kunday
-name=docker-agent
+name=go-base
 
 install:
 	docker build -t ${name} .

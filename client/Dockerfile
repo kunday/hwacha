@@ -1,8 +1,4 @@
-FROM ubuntu:14.04
-
-RUN apt-get update
-RUN apt-get install -y openjdk-6-jdk
-ADD . /root/
+FROM kunday/go-base
 
 RUN wget -nc -nv http://download.go.cd/gocd-deb/go-agent-14.2.0-377.deb
 RUN dpkg -i go-agent-14.2.0-377.deb
