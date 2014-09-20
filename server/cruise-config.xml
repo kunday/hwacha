@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="72">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="388b633a88de126531afa41eff9aa69e" commandRepositoryLocation="default" serverId="9b43ddf1-d1fa-47e9-b62b-8a736dd3e54d" />
+  <pipelines group="kunday">
+    <pipeline name="hwacha">
+      <materials>
+        <git url="https://kunday@bitbucket.org/kunday/hwacha.git" />
+      </materials>
+      <stage name="Base">
+        <jobs>
+          <job name="Build">
+            <tasks>
+              <exec command="/bin/sh" workingdir="base">
+                <arg>-c</arg>
+                <arg>make</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="Main">
+        <jobs>
+          <job name="Agent">
+            <tasks>
+              <exec command="/bin/sh" workingdir="client">
+                <arg>-c</arg>
+                <arg>make</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+          <job name="Server">
+            <tasks>
+              <exec command="/bin/sh" workingdir="server">
+                <arg>-c</arg>
+                <arg>make</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+</cruise>
