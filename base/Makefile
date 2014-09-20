@@ -2,7 +2,7 @@ image_namespace=kunday
 name=go-base
 
 install:
-	docker build -t ${name} .
+	docker build -t ${image_namespace}/${name} .
 	docker tag ${name} ${image_namespace}/${name}:latest
 tag:
 	docker tag ${name} ${image_namespace}/${name}:${BUILD_NUMBER}
