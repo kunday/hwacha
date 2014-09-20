@@ -41,6 +41,41 @@
           </job>
         </jobs>
       </stage>
+      <stage name="Publish">
+        <approval type="manual" />
+        <jobs>
+          <job name="Base">
+            <tasks>
+              <exec command="/bin/sh" workingdir="base">
+                <arg>-c</arg>
+                <arg>make push</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+          <job name="Agent">
+            <tasks>
+              <exec command="/bin/sh" workingdir="client">
+                <arg>-c</arg>
+                <arg>make push</arg>
+              </exec>
+            </tasks>
+            <resources>
+              <resource>docker</resource>
+            </resources>
+          </job>
+          <job name="Server">
+            <tasks>
+              <exec command="/bin/sh" workingdir="server">
+                <arg>-c</arg>
+                <arg>make push</arg>
+              </exec>
+            </tasks>
+            <resources>
+              <resource>docker</resource>
+            </resources>
+          </job>
+        </jobs>
+      </stage>
     </pipeline>
   </pipelines>
-</cruise>
