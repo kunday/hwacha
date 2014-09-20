@@ -3,7 +3,7 @@ name=go-base
 
 install:
 	docker build -t ${image_namespace}/${name} .
-	docker tag ${name} ${image_namespace}/${name}:latest
+	docker tag ${image_namespace}/${name} ${image_namespace}/${name}:latest
 tag:
 	docker tag ${name} ${image_namespace}/${name}:${BUILD_NUMBER}
 	@echo ${BUILD_NUMBER} > docker-tag.txt

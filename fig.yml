@@ -1,0 +1,12 @@
+server:
+  image: kunday/go-server
+  ports:
+    - "8153:8153"
+  environment:
+    - DOCKER_HOST="tcp://172.17.42.1:4243"
+agent:
+  image: kunday/go-agent
+  links:
+    - server:go
+  environment:
+    - DOCKER_HOST="tcp://172.17.42.1:4243"
