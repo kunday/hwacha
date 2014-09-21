@@ -1,5 +1,5 @@
 ## What is hwacha?
-Hwacha is a dockerized gocd server to get started with go server quick.
+Hwacha is a dockerized gocd server to evaluate gocd or run it in prodcution.
 
 ## About go cd
 Go is a open source continuous Integration and Release Management system
