@@ -1,7 +1,32 @@
 #hwacha
 
-## Getting Started
+## About
 Hwacha is a dockerized gocd server to get started with go server quick.
+
+## Requirements
+
+* Hwacha is based on [docker](docker.io) so you'll need docker.
+* [Fig](fig.sh) if you would like to use fig to bring the containers using
+  fig.
+
+## Running
+Clone hwacha into your dev workspace or server:
+
+    git clone https://kunday@bitbucket.org/kunday/hwacha.git
+
+You can now bring up go server and one agent using:
+
+    fig up
+
+To increase the number of agents, run
+
+    fig scale agent=4
+
+You should be able to access go server running at
+
+    http://localhost:8153/go
+
+If you are running using a vm, use the ip address of that host.
 
 ## Structure
 The project is structured into 3 dockerized containers base(common packages
