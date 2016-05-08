@@ -1,7 +1,7 @@
 FROM kunday/go-base
 
-RUN wget -nc -nv http://download.go.cd/gocd-deb/go-agent-14.2.0-377.deb
-RUN dpkg -i go-agent-14.2.0-377.deb
+RUN wget -nc -nv https://download.go.cd/binaries/16.4.0-3223/deb/go-agent-16.4.0-3223.deb
+RUN dpkg -i go-agent-16.4.0-3223.deb
 USER go
 
 ADD autoregister.properties /var/lib/go-agent/config/autoregister.properties

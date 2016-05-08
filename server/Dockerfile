@@ -1,7 +1,7 @@
 FROM kunday/go-base
 
-RUN wget -nc -nv http://download.go.cd/gocd-deb/go-server-14.2.0-377.deb
-RUN dpkg -i go-server-14.2.0-377.deb
+RUN wget -nc -nv https://download.go.cd/binaries/16.4.0-3223/deb/go-server-16.4.0-3223.deb
+RUN dpkg -i go-server-16.4.0-3223.deb
 
 ADD cruise-config.xml /etc/go/cruise-config.xml
 RUN chown go:go /etc/go/cruise-config.xml
